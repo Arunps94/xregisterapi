@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
     var email = req.body.email;
     User.find({ email: email }, (err, data) => {
         if (data.length>0) {
-            console.log(data)
+            //console.log(data)
             return res.status(500).send({auth:false,token:'Email Already Taken'})
         } else {
             User.create({
