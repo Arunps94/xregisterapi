@@ -22,7 +22,8 @@ router.post('/register', (req, res) => {
     var hashpassword = bcrypt.hashSync(req.body.password, 8);
     var email = req.body.email;
     User.find({ email: email }, (err, data) => {
-        if (data.lenght>0) {
+        if (data.length>0) {
+            console.log(data)
             return res.status(500).send({auth:false,token:'Email Already Taken'})
         } else {
             User.create({
