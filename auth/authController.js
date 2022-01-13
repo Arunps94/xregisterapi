@@ -34,7 +34,7 @@ router.post('/register', (req, res) => {
                 role: req.body.role ? req.body.role : 'User'
             }, (err, data) => {
                 if (err) return res.status(500).send('Error While Register')
-                res.status(200).send("Register Successfull")
+                return  res.status(200).send({auth:true,token:"Registered Successfully Now you can login"})
             })
         }
     })
